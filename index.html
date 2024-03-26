@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Brochure</title>
+    <script>
+        // This function is called when the QR code is scanned
+        function downloadBrochure() {
+            // Replace 'brochure_link' with the actual link to your e-brochure PDF
+            var brochureLink = "https://www.example.com/path/to/your/brochure.pdf";
+            
+            // Create a temporary anchor element
+            var downloadLink = document.createElement("a");
+            downloadLink.href = brochureLink;
+            downloadLink.download = "brochure.pdf"; // Set the default filename for download
+            document.body.appendChild(downloadLink);
+            
+            // Trigger the download
+            downloadLink.click();
+            
+            // Cleanup: Remove the temporary anchor element
+            document.body.removeChild(downloadLink);
+        }
+    </script>
+</head>
+<body>
+    <!-- This is where you can display an image of the QR code -->
+    <!-- When the QR code is scanned, it should trigger the downloadBrochure() function -->
+    <!-- You can replace the 'src' attribute value with the actual URL of your QR code image -->
+    <img src="./qrcode.png" style="width: 200px; height: 200px;" alt="Scan QR Code" onclick="downloadBrochure()">
+</body>
+</html>
